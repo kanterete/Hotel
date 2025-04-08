@@ -1,0 +1,17 @@
+[
+  {
+    "client": "Jakub",
+    "message": "Pokój przestronny, łóżko wygodne, ale hałas zza okna.",
+    "rating": "3/5💠"
+  },
+  {
+    "client": "Kuba",
+    "message": "Hotel jest wyśmienity, jedzenie pyszne, ale mogłoby być taniej.",
+    "rating": "4/5💠"
+  },
+  {
+    "client": "Mikołaj",
+    "message": "Kulturalna obsługa i znakomita atmosfera. Na pewno tu wrócę!",
+    "rating": "5/5💠"
+  }
+]

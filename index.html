@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="lightbox.css" />
+    <title>Pitbull Hotel</title>
+  </head>
+  <body id="container">
+    <header>
+      <h1 class="logo">Pitbull Hotel</h1>
+      <nav>
+        <ul class="nav-links">
+          <li onclick="loader(1)">
+            <a href="#" class="">Strona główna</a>
+          </li>
+          <li onclick="loader(2)">
+            <a href="#us" class="">Nasza firma</a>
+          </li>
+          <li onclick="loader(3)">
+            <a href="#gallery" class="">Zdjęcia</a>
+          </li>
+          <li onclick="loader(4)">
+            <a href="#reserve" class="">Zarezerwuj noc</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="headings">PITBULL <br />HOTEL</h1>
+          <button onclick="loader(2)" class="button">NASZA FIRMA</button>
+        </div>
+
+        <div class="hero-img">
+          <img class="" src="Design/Photos/pitbull.png" alt="szef1" />
+        </div>
+      </section>
+
+      <section class="boss">
+        <div class="boss-img">
+          <img src="Design/Photos/pitbull2.png" alt="szef2" />
+        </div>
+
+        <div class="boss-content">
+          <h2 class="subheadings">GŁOWA NASZEJ FIRMY</h2>
+          <p class="text">
+            Pitbull, znany na całym świecie jako Mr. Worldwide, to nie tylko
+            ikona muzyki, ale również wizjoner w świecie biznesu. Jego unikalna
+            energia, pasja i poświęcenie stanowiły inspirację do stworzenia
+            Pitbull Hotel – miejsca, które łączy luksus z latynoskim rytmem. Z
+            każdym krokiem, Pitbull stawia na jakość, innowację i niezapomniane
+            doświadczenia dla swoich gości. Witamy w miejscu, gdzie każdy czuje
+            się wyjątkowo!
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="text">&copy;KKK</footer>
+    <script src="Scripts/app.js"></script>
+    <script src="Scripts/validation.js"></script>
+    <script src="Scripts/lightbox-plus-jquery.js"></script>
+  </body>
+</html>
