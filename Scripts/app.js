@@ -2,15 +2,6 @@ async function loader(id) {
   const container = document.getElementById("container");
   container.querySelector("main").innerHTML = "";
 
-  //active remove
-  const links = document.querySelectorAll(".nav-links li a");
-  links.forEach((link) => {
-    link.addEventListener("click", function () {
-      links.forEach((l) => l.classList.remove("active"));
-      this.classList.add("active");
-    });
-  });
-
   let content = "";
 
   switch (id) {
@@ -32,13 +23,49 @@ async function loader(id) {
   }
 
   container.querySelector("main").innerHTML = content;
+  initializeDynamicButtons();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".nav-links li a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = parseInt(link.getAttribute("data-id"));
+      loader(id);
+
+      navLinks.forEach((l) => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+
+  initializeDynamicButtons();
+});
+
+function initializeDynamicButtons() {
+  const heroBtn = document.getElementById("heroBtn");
+  const navLinks = document.querySelectorAll(".nav-links li a");
+
+  if (heroBtn) {
+    heroBtn.addEventListener("click", () => {
+      loader(2);
+
+      navLinks.forEach((l) => l.classList.remove("active"));
+      const targetLink = [...navLinks].find(
+        (link) => link.getAttribute("data-id") === "2"
+      );
+      if (targetLink) {
+        targetLink.classList.add("active");
+      }
+    });
+  }
 }
 
 function showHome() {
   return `<section class="hero">
         <div class="hero-content">
           <h1 class="headings">PITBULL <br />HOTEL</h1>
-          <button onclick="loader(2)" class="button">NASZA FIRMA</button>
+          <button id="heroBtn" class="button">NASZA FIRMA</button>
         </div>
         <div class="hero-img">
           <img class="" src="Design/Photos/pitbull.png" alt="szef1" />
@@ -148,14 +175,14 @@ async function showOpinions() {
 }
 
 function showReserve() {
-  const showButton = `<input type="button" name="pokaz" class="button" id="pokaz" value="Pokaż zapisane dane" onclick="showFormData()"/>`;
+  const showButton = `<input type="button" name="pokaz" class="button" id="pokaz" value="Pokaż zapisane dane"/>`;
 
   const sentButton = `<input
                 type="button"
                 name="wyslij"
                 value="Wyślij"
                 class="button"
-                onclick="checkForm()"
+                id="wyslij"
               />`;
 
   var tresc = `<section class="formularz" id="reserve">

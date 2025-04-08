@@ -1,3 +1,10 @@
+document.addEventListener("click", (e) => {
+  if (e.target.id === "pokaz") showFormData();
+  if (e.target.name === "wyslij" || e.target.name === "zapisz dane")
+    checkForm();
+  if (e.target.id === "deleteBtn") deleteFormData();
+});
+
 let sent = 0;
 
 const patternCheck = (element, value) => {
@@ -101,7 +108,7 @@ function saveForm() {
   form.reset();
 
   const buttonsDiv = document.getElementById("buttons");
-  const showButton = `<input type="button" name="pokaz" class="button" id="pokaz" value="Pokaż zapisane dane" onclick="showFormData()"/>`;
+  const showButton = `<input type="button" name="pokaz" class="button" id="pokaz" value="Pokaż zapisane dane"/>`;
   const sentInfo = '<h2 class="sub green">Wysłano pomyślnie formularz</h2>';
   buttonsDiv.innerHTML = sentInfo + showButton;
 }
@@ -125,8 +132,8 @@ function showFormData() {
     checkbox.checked = savedData.services.includes(checkbox.value);
   });
 
-  const deleteButton = `<input type="button" id="deleteBtn" class="button" value="Usuń dane" onclick="deleteFormData()"/>`;
-  const editButton = `<input type="button" name="zapisz dane" value="Nadpisz dane" class="button" onclick="checkForm()"/>`;
+  const deleteButton = `<input type="button" id="deleteBtn" class="button" name="usun dane" value="Usuń dane" />`;
+  const editButton = `<input type="button" id="wyslij" class="button" name="zapisz dane" value="Nadpisz dane" />`;
 
   buttonsDiv.innerHTML = deleteButton + editButton;
 }
@@ -143,7 +150,7 @@ function deleteFormData() {
                 name="wyslij"
                 value="Wyślij nowe dane"
                 class="button"
-                onclick="checkForm()"
+                id="wyslij"
               />`;
   buttonsDiv.innerHTML = deleteInfo + sentNew;
 }
