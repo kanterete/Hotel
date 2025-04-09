@@ -24,6 +24,10 @@ async function loader(id) {
 
   container.querySelector("main").innerHTML = content;
   initializeDynamicButtons();
+
+  container.classList.remove("fade-in");
+  void container.offsetWidth;
+  container.classList.add("fade-in");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
